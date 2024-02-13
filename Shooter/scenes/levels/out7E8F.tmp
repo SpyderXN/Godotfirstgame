@@ -1,0 +1,35 @@
+[gd_scene load_steps=8 format=3 uid="uid://cs7hg5v2wmgwe"]
+
+[ext_resource type="PackedScene" uid="uid://c7fd7uwgdraay" path="res://scenes/levels/level.tscn" id="1_o8k7a"]
+[ext_resource type="Script" path="res://scenes/levels/outside_level.gd" id="2_6bhts"]
+[ext_resource type="Texture2D" uid="uid://c215tvulg40hf" path="res://graphics/ground/dirt.png" id="2_rpb3w"]
+[ext_resource type="PackedScene" uid="uid://co7p8mawb8e4s" path="res://scenes/house/house.tscn" id="3_yggxs"]
+[ext_resource type="PackedScene" uid="uid://ytc5ao7vg2ay" path="res://scenes/gate/gate.tscn" id="4_3gh3k"]
+[ext_resource type="PackedScene" uid="uid://bcm5ewwulhnta" path="res://scenes/box/box.tscn" id="5_ox6wy"]
+[ext_resource type="PackedScene" uid="uid://dn1plp4biu12u" path="res://scenes/toilet/toilet.tscn" id="6_6dyi5"]
+
+[node name="OutsideLevel" instance=ExtResource("1_o8k7a")]
+script = ExtResource("2_6bhts")
+
+[node name="Dirt" type="Sprite2D" parent="Ground" index="0"]
+texture_repeat = 2
+texture = ExtResource("2_rpb3w")
+region_enabled = true
+region_rect = Rect2(0, 0, 20000, 10000)
+
+[node name="House" parent="Ground" index="1" instance=ExtResource("3_yggxs")]
+position = Vector2(-6022, -2787)
+
+[node name="Box" parent="Ground" index="2" instance=ExtResource("5_ox6wy")]
+position = Vector2(-373, 515)
+
+[node name="Toilet" parent="Ground" index="3" instance=ExtResource("6_6dyi5")]
+position = Vector2(-379, 882)
+
+[node name="Gate" parent="." index="2" instance=ExtResource("4_3gh3k")]
+position = Vector2(472, -496)
+
+[connection signal="player_entered" from="Ground/House" to="." method="_on_house_player_entered"]
+[connection signal="player_exited" from="Ground/House" to="." method="_on_house_player_exited"]
+[connection signal="player_entered" from="Gate" to="." method="_on_gate_player_entered"]
+[connection signal="player_exited" from="Gate" to="." method="_on_gate_player_exited"]

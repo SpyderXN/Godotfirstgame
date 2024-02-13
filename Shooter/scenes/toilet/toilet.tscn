@@ -1,0 +1,26 @@
+[gd_scene load_steps=6 format=3 uid="uid://dn1plp4biu12u"]
+
+[ext_resource type="PackedScene" uid="uid://isokcti884xk" path="res://scenes/item_container/item_container.tscn" id="1_mako3"]
+[ext_resource type="Texture2D" uid="uid://ct82i0it7u27v" path="res://graphics/objects/toilet/toilet.png" id="2_jcic4"]
+[ext_resource type="Script" path="res://scenes/toilet/toilet.gd" id="2_t7owd"]
+[ext_resource type="Texture2D" uid="uid://cc3yvlebwe43l" path="res://graphics/objects/toilet/lid.png" id="3_glgxh"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_huc4b"]
+radius = 95.0474
+
+[node name="Toilet" instance=ExtResource("1_mako3")]
+collision_layer = 2
+collision_mask = 9
+script = ExtResource("2_t7owd")
+
+[node name="CollisionShape2D" parent="." index="0"]
+shape = SubResource("CircleShape2D_huc4b")
+
+[node name="Sprite2D" parent="." index="1"]
+texture = ExtResource("2_jcic4")
+
+[node name="Sprite2D2" type="Sprite2D" parent="." index="2"]
+position = Vector2(0, 19)
+texture = ExtResource("3_glgxh")
+
+[node name="Marker2D" type="Marker2D" parent="Spawner" index="0"]

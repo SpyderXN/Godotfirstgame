@@ -1,0 +1,12 @@
+[gd_scene load_steps=2 format=3 uid="uid://isokcti884xk"]
+
+[ext_resource type="Script" path="res://scenes/item_container/item_container.gd" id="1_3vviy"]
+
+[node name="ItemContainer" type="StaticBody2D" groups=["Container"]]
+script = ExtResource("1_3vviy")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+
+[node name="Spawner" type="Node2D" parent="."]
